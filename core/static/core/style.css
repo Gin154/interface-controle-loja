@@ -1,0 +1,97 @@
+body {
+    background-image: url("https://wallpaperaccess.com/full/2431350.jpg");
+    
+}
+.button {
+    font-family: arial;
+    font-weight: bold;
+    transition-duration: 0.5s;
+    text-decoration:none;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 20px;
+    background-color: aquamarine;
+    border-radius: 30px;
+    text-align: center;
+    color: #000000;
+    display:inline-block;
+}
+.button:hover {
+    background-color: #000000;
+    color: aquamarine;
+    cursor: pointer;
+}
+#pagebutton{
+    width: fit-content;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+#box {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 50px;
+    width: max-content;
+    margin: 0 auto;
+    background-color: aquamarine;
+    position: relative;
+    margin-top: 10px;
+}
+@keyframes fadein{
+    from{
+        opacity: 0;
+        
+    }
+    to{ 
+        opacity: 1;
+    }
+}
+#searchbox {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin: 0 auto;
+    width: max-content;
+    margin-bottom: 10px;
+    background-color: aquamarine;
+    border: 2px solid black;
+    border-radius: 50px;
+    text-align: center;
+}
+#searchboxinside{
+    width: fit-content;
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.searchfield {
+    display: inline;
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 50px;
+    margin: 0 auto;
+    width: fit-content;
+    border: 2px solid green;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.searchbutton {
+    font-size: 20px;
+    display: inline;
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 50px;
+    margin: 0 auto;
+    width: fit-content;
+    border: 2px solid green;
+    margin-left: 5px;
+    margin-right: 5px;
+    transition-duration: 0.5s;
+}
+.searchbutton:hover{
+    background-color: #3b8ec5;
+    color: aquamarine;
+    cursor: pointer;
+}

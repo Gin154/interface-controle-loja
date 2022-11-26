@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'core/style.css' %}">
+    <style>
+        #caixa{
+            width: fit-content;
+            margin: auto;
+            background-color: aquamarine;
+            border: 2px solid black;
+            padding: 20px;
+            border-radius: 25px;
+            font-family: arial;
+
+        }
+        table{
+            font-size: 20px;
+            border:2px solid black;
+            border-radius: 50px;
+            border-collapse: collapse;
+        }
+        td, th{
+            border: 2px solid black;
+            padding-left: 6px;
+            padding-right: 6px;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+    </style>
+    <div id="pagebutton">
+        <a href="/home" class="button">Início</a>
+        <a href="/listcli"  class="button">Listar clientes</a>
+        <a href="/registercli" class="button">Cadastrar cliente</a>
+        <a href="/listprod" class="button">Listar produtos</a>
+        <a href="/categorias" class="button">Categorias</a>
+        <a href="/registerpro" class="button">Cadastrar produtos</a>
+    </div>
+</head>
+<body style="background-image: url('https://wallpaperaccess.com/full/2431350.jpg') ;">
+    <style>
+    
+
+    </style>
+    <div id="searchbox">
+        <h2>Pesquisar Produto</h2>
+        <div id="searchboxinside">
+        <form action="{%url 'searchprod'%}" method="POST">
+            {%csrf_token%}
+            <div class="searchfield">
+                <label for="id">ID</label>
+                <input type="text" size=5 pattern="[0-9]+" id="id" title="Somente Números" name="id">
+            </div>
+            <div class="searchfield">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome">
+            </div>
+            <button class="searchbutton">Pesquisar</button>
+        </form>
+        </div>
+
+    </div>
+    
+
+    <div id="caixa">
+        {%if cod == 1 %}
+    <div style="text-align:center; border: 2px solid black; border-collapse: collapse; border-bottom:1px solid black;">
+        <h2>Resultado da Pesquisa</h2>
+    </div>
+    {%endif%}
+       
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Preço</th>
+            <th>Categoria</th>
+            <th>Ação</th>
+        </tr>
+
+        {% for i in prod %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.nome}}</td>
+            <td>{{i.quant}}</td>
+            <td>{{i.price}}</td>
+            <td>{{i.categ}}</td>
+            <td>
+                <a href="{% url 'editprod' i.id %}">Editar</a>
+                <a href="{% url 'deleteprod' i.id %}">Deletar</a>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+
+    
+</body>
+</html>

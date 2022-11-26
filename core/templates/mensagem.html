@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'core/style.css' %}">
+    <style>
+    #mensagem-pos {
+        padding: 20px;
+        width: fit-content;
+        margin: auto;
+        background-color: rgb(127, 231, 127);
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        border-radius: 50px;
+        border: 2px solid black;
+    }
+    #mensagem-neg {
+        padding: 20px;
+        margin: auto;
+        width: fit-content;
+        background-color: rgb(238, 74, 74);
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        border-radius: 50px;
+        border: 2px solid black;
+    }
+    </style>
+    <div id="pagebutton">
+        <a href="/home" class="button">Início</a>
+        <a href="/listcli"  class="button">Listar clientes</a>
+        <a href="/registercli" class="button">Cadastrar cliente</a>
+        <a href="/listprod" class="button">Listar produtos</a>
+        <a href="/categorias" class="button">Categorias</a>
+        <a href="/registerpro" class="button">Cadastrar produtos</a>
+    </div>
+</head>
+<body style="position:relative;">
+
+    {%if cod == 1%}
+    <div id="mensagem-pos">
+        <h1>{{mensagem}}</h1>
+        <a href="/core" class="button">Retornar ao ínicio</a>
+        {%if sit == 'prod' %}
+        <a href="/listprod" class="button">Lista de produtos</a>
+        {%endif%}
+        {%if sit == 'cli' %}
+        <a href="/listcli" class="button">Lista de clientes</a>
+        {%endif%}
+    </div>
+    {%endif%}
+    {%if cod == 0%}
+    <div id="mensagem-neg">
+        <h1>{{mensagem}}</h1>
+
+        <a href="/core" class="button">Retornar ao ínicio</a>
+        {%if sit == 'prod' %}
+        <a href="/listprod" class="button">Lista de produtos</a>
+        {%endif%}
+        {%if sit == 'cli' %}
+        <a href="/listcli" class="button">Lista de clientes</a>
+        {%endif%}
+    </div>
+    {%endif%}
+
+    
+   
+
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'core/style.css' %}">
+
+    <div id="pagebutton">
+        <a href="/home" class="button">Início</a>
+        <a href="/listcli"  class="button">Listar clientes</a>
+        <a href="/registercli" class="button">Cadastrar cliente</a>
+        <a href="/listprod" class="button">Listar produtos</a>
+        <a href="/categorias" class="button">Categorias</a>
+        <a href="/registerpro" class="button">Cadastrar produtos</a>
+    </div>
+</head>
+<body>
+    <div id="box">
+    <h1>Tem certeza que quer deletar o seguinte usuário?</h1>
+    <h2>Nome: {{user.nome}}</h2>
+    <h2>E-Mail: {{user.email}}</h2>
+    <h2>CPF: {{user.cpf}}</h2>
+    <h2>Data de Nascimento: {{user.nasc}}</h2>
+    <form action="{%url 'confirmdeletecli' user.id %}" method="post">
+        {%csrf_token%}
+        <h2>Para confirmar resolva o cálculo:</h2>
+        <label for="digita">{{contaa}} + {{contab}} = </label>
+        <input type="number" id="digita" maxlength="3" size="1" name="calc" required>
+        <input type="hidden" name="contaa" value="{{contaa}}">
+        <input type="hidden" name="contab" value="{{contab}}">
+        <button type="submit" class="button">Confirmar</button>
+        
+    </form>
+    <button onClick="window.location.reload();" class="button">Mudar Cálculo</button>
+    </div>
+
+</body>
+</html>

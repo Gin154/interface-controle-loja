@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'core/style.css' %}">
+    <style>
+        #caixa{
+            padding: 10px;
+            background-color: aquamarine;
+            width: 300px;
+            margin: auto;
+            border-radius: 50px;
+            border:2px solid rgb(0, 0, 0);
+            text-align: center;
+    }
+        #caixa1 {
+            background-color: rgba(0, 0, 0, 0);
+            border-radius: 50px;
+            border:2px solid rgb(0, 0, 0);
+            padding-bottom: 10px;
+            margin-top: 2px;
+            margin-bottom: 10px;
+            font-family:'OPEN SANS';
+        }
+        #enviar{
+            font-family:'arial';
+            color: white;
+            background-color: black;
+            padding: 3px;
+            border: 2px solid black;
+            border-radius: 50px;
+            text-decoration: none;
+            transition-duration:.4s;
+            font-size: 25px;
+            
+        }
+        #enviar:hover{
+            background-color: aqua;
+            color: black;
+            cursor: pointer;
+            
+        }
+    </style>
+    <div id="pagebutton">
+        <a href="/home" class="button">Início</a>
+        <a href="/listcli"  class="button">Listar clientes</a>
+        <a href="/registercli" class="button">Cadastrar cliente</a>
+        <a href="/listprod" class="button">Listar produtos</a>
+        <a href="/categorias" class="button">Categorias</a>
+        <a href="/registerpro" class="button">Cadastrar produtos</a>
+    </div>
+</head>
+<body style="background-image: url('https://wallpaperaccess.com/full/2431350.jpg') ;">
+    <div id="caixa">
+    <h1 id="welcome" style="text-align:center; font-family:'Bungasai';">
+        Cadastrar Produto
+    </h1>
+
+    <form action="{%url 'cadprod'%}" method="POST">
+        {%csrf_token%}
+        <div id="caixa1">
+        <h3>Produto:</h3>
+        <input type="text" name="nome" required>
+        </div>
+        <div id="caixa1">
+        <h3>Quantidade</h3>
+        <input type="text" name="quant" required>
+        </div>
+        <div id="caixa1">
+        <h3>Preço</h3>
+        <input type="text" name="price" value="R$" required>
+        </div>
+
+        <div id="caixa1">
+        <h3>Categoria:</h3>
+        <select name="sel">
+        {%for item in categ%}
+        {{item.nome}}
+        <option value="{{item.nome}}">{{item.nome}}</option>
+        {%endfor%}
+        </select>
+        </div>
+    
+        
+        <button id="enviar" type="submit">Registrar</button>
+        
+    </form>
+    </div>
+
+    
+</body>
+</html>

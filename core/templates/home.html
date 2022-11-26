@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'core/style.css' %}">
+    
+    <style> 
+    #welcome{
+        text-align: center;
+        position: relative;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        animation: fadein 1s;
+        
+    }
+    
+
+    #botoes{
+        position: absolute;
+        margin: 0 auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        display: flex;
+        flex-direction: row;
+        height: 250px;
+        animation: fadein 2s;
+    }
+    .button{
+        width: 200px;
+    }
+    #clientes{
+        position: relative;
+        display:flex;
+        flex-direction: column;
+        height: 62px;
+        overflow: hidden;
+        padding-left: 2px;
+    }
+    #clientes:hover{
+        transition-duration: 1s;
+        position: relative;
+        display:flex;
+        flex-direction: column;
+        height: 250px;
+    }
+    #produtos{
+        position: relative;
+        display:flex;
+        flex-direction: column;
+        height: 62px;
+        overflow: hidden;
+        padding-right: 2px;
+    }
+    #produtos:hover{
+        transition-duration: 1s;
+        position: relative;
+        display:flex;
+        flex-direction: column;
+        height: 250px;
+    }
+    </style>
+</head>
+<body>  
+    <h1 id="welcome">
+        Bem vindo!
+    </h1>
+    
+    <div id="botoes">
+
+        <div id="produtos">
+            <a class="button">Produtos</a>
+                <a href="listprod" class="button">Listar produtos</a>
+                <a href="registerpro" class="button">Cadastrar produtos</a>
+                <a href="categorias" class="button">Categorias</a>
+        </div> 
+        <div id="clientes">
+            <a class="button">Clientes</a>
+                <a href="listcli"  class="button">Listar clientes</a>
+                <a href="registercli" class="button">Cadastrar cliente</a>  
+        </div>
+    </div>
+</body>
+</html>
