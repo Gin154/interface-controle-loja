@@ -3,6 +3,8 @@ from django.urls import path
 from core.views import home, registerpro, cadprod, listprod, registercli, cadcli, listcli, deleteprod, confirmdeleteprod, deletecateg
 from core.views import editcli, deletecli, confirmeditcli, confirmdeletecli, teste, editprod, confirmeditprod, categorias, cadcateg
 from core.views import searchprod, searchcli
+from login.views import login
+
 urlpatterns = [
     path('', home),
     path('home', home, name='home'),
@@ -26,8 +28,5 @@ urlpatterns = [
     path('searchprod', searchprod, name="searchprod"),
     path('searchcli', searchcli, name='searchcli'),
     path('teste', teste, name='teste'),
-    
-
-
-
+    path('login', login, name='login'),
 ]
