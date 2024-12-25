@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Cliente</title>
     <link rel="stylesheet" href="{% static 'core/style.css' %}">
+    <script src="{% static 'core/script.js' %}"></script>
     <style>
         #caixa{
             padding: 10px;
@@ -60,7 +61,7 @@
         <!--CPF-->
         <div id="caixa1">
         <h3>CPF</h3>
-        <input type="text" name="cpf" pattern="{12}" value="{{user.cpf}}" placeholder="000.000.000-00" required>
+        <input type="text" name="cpf" pattern="{12}" value="{{user.cpf}}" placeholder="000.000.000-00" id="caixacpf" required>
         </div>
         
         <!--Nascimento-->
